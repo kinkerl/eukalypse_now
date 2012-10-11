@@ -1,2 +1,22 @@
-*.py~
-*.pyc
+*.py[co]
+*~
+
+*.sqlite3
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+
+# Installer logs
+pip-log.txt
+
+media/images
