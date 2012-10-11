@@ -1,0 +1,5 @@
+<ul>
+{% for testrun in testruns %}
+	<li><a href="{{testrun.get_absolute_url}}">{{ testrun }}</a></li>
+{% endfor %}
+</ul>

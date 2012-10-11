@@ -1,0 +1,22 @@
+<h1>{{testrun.project.name}} - {{testrun}}</h1>
+{{testrun.project}}
+
+<ul>
+{% for testresult in testrun.testresult.all %}
+	<li>
+
+	
+	{% if testresult.error %}
+		<span style="color: red">{{testresult.test.identifier}}</span><br/>	
+		<img width="100" src="{{testresult.test.image.url}}">
+		<img width="100" src="{{testresult.resultimage.url}}">
+		<img width="100" src="{{testresult.errorimage.url}}">
+		<img width="100" src="{{testresult.errorimage_improved.url}}">
+		
+	{% else %}
+		<span style="color: green">{{testresult.test.identifier}}</span>
+	{% endif %}
+
+	</li>
+{% endfor %}
+</ul>

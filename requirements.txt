@@ -1,1 +1,3 @@
 south
+pil
+-e git://github.com/kinkerl/eukalypse.git@master#egg=eukalypse
