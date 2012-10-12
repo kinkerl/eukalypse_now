@@ -29,7 +29,15 @@ class Command(BaseCommand):
             if eukalypse_result_object.clean:
                 testresult = Testresult.objects.create(test=test, testrun = testrun, resultimage=self._getMediaUrl(eukalypse_result_object.target_img))
             else:
-                testresult = Testresult.objects.create(test=test, testrun = testrun, error = True, resultimage=self._getMediaUrl(eukalypse_result_object.target_img), errorimage=self._getMediaUrl(eukalypse_result_object.difference_img),  errorimage_improved=self._getMediaUrl(eukalypse_result_object.difference_img_improved))
+                testresult = Testresult.objects.create(\
+                    test=test, \
+                    testrun = testrun, \
+                    error = True, \
+                    resultimage=self._getMediaUrl(eukalypse_result_object.target_img), \
+                    referenceimage=test.image, \
+                    errorimage=self._getMediaUrl(eukalypse_result_object.difference_img), \
+                    errorimage_improved=self._getMediaUrl(eukalypse_result_object.difference_img_improved)\
+                    )
 
             testresult.save()
 

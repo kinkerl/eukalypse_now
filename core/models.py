@@ -25,6 +25,7 @@ class Testresult(models.Model):
     testrun = models.ForeignKey('Testrun',  related_name='testresult')
     resultimage = models.ImageField(upload_to='images', null=True, blank=True)
     error = models.BooleanField(default=False)
+    referenceimage = models.ImageField(upload_to='images', null=True, blank=True)
     errorimage = models.ImageField(upload_to='images', null=True, blank=True)
     errorimage_improved = models.ImageField(upload_to='images', null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -33,12 +34,15 @@ class Testresult(models.Model):
     def __unicode__(self):
         return "{0}-{1}".format(self.test.identifier, self.testrun.created)
 
+    def become_reference(self):
+        self.test.image = self.resultimage
+
 class Testrun(models.Model):
     project = models.ForeignKey('Project', null=True,  related_name='testrun')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     def __unicode__(self):
-        return "Testrun-{0}".format(self.created)
+        return "{0}-{1}".format(self.project.name, self.created)
 
     def get_absolute_url(self):
         return "/testrun/detail/%i/" % self.id
