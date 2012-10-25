@@ -1,4 +1,4 @@
-from core.models import Test, Project, Testrun, Testresult
+from models import Test, Project, Testrun, Testresult
 from django.contrib import admin
 
 

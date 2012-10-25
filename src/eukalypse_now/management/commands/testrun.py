@@ -1,9 +1,9 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 
-from core.models import Project
-from core.models import Testresult
-from core.models import Testrun
+from eukalypse_now.models import Project
+from eukalypse_now.models import Testresult
+from eukalypse_now.models import Testrun
 from eukalypse.eukalypse import Eukalypse
 import os
 from datetime import datetime

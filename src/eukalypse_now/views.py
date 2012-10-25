@@ -5,11 +5,11 @@ from django.utils import simplejson
 
 def testrun_list(request):
     testruns = Testrun.objects.all()
-    return render(request, 'testrun/list.html', {"testruns": testruns})
+    return render(request, 'eukalypse_now/testrun/list.html', {"testruns": testruns})
 
 def testrun_detail(request, testrun_id):
     testrun = get_object_or_404(Testrun, pk=testrun_id)
-    return render(request, 'testrun/detail.html', {"testrun": testrun})
+    return render(request, 'eukalypse_now/testrun/detail.html', {"testrun": testrun})
 
 def testresult_as_reference(request, testresult_id):
     testresult = get_object_or_404(Testrun, pk=testrun_id)
