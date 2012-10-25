@@ -25,7 +25,7 @@ class Command(BaseCommand):
             e.browser = settings.EUKALYPSE_BROWSER
             e.host = settings.EUKALYPSE_HOST
             e.output = os.path.join(settings.MEDIA_ROOT , 'images')
-            eukalypse_result_object = e.compare(test.identifier + "-" + str(datetime.now()).replace(' ', '-'), test.image, test.url)
+            eukalypse_result_object = e.compare(test.get_identifier(), test.image, test.url)
             e.disconnect()
             if eukalypse_result_object.clean:
                 testresult = Testresult.objects.create(test=test, testrun = testrun, resultimage=self._getMediaUrl(eukalypse_result_object.target_img))

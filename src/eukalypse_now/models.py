@@ -1,6 +1,10 @@
+# -*- coding: utf-8 -*-
+import os
 from django.db import models
+from django.conf import settings
+from datetime import datetime
+from eukalypse.eukalypse import Eukalypse
 
-# Create your models here.
 
 class Project(models.Model):
     name = models.CharField(max_length=200)
@@ -22,7 +26,22 @@ class Test(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
-        return self.identifier
+        return u"%s <%s>" % (self.identifier, self.image)
+
+    def get_identifier(self):
+        from django.template.defaultfilters import slugify
+        """Liefert einen identifier String für dieses Screenshotbild."""
+        return u"%s" % slugify(self.identifier + "-" + str(datetime.now()).replace(' ', '-'))
+
+    def _set_image_from_url(self):
+        """Erzeugt Screenshot von url mit Eukalypse und speichert selbiges image (überschreibt evtl vorhandenes image)."""
+        identifier = self.get_identifier() # Vorher speichern!
+        e = Eukalypse()
+        e.browser = 'phantomjsbin'
+        e.output = os.path.join(settings.MEDIA_ROOT , 'images')
+        e.screenshot(identifier, self.url)
+        self.image = "images/" + identifier + ".png"
+        self.save()
 
 class Testresult(models.Model):
     test = models.ForeignKey('Test')

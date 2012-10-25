@@ -1,5 +1,6 @@
+Django
 south
 sphinx
-pil
+pillow
 -e git://github.com/kinkerl/eukalypse.git@master#egg=eukalypse
 raven

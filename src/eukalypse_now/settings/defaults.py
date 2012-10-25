@@ -1,7 +1,5 @@
 # Django settings for eukalypse_now project.
 import os
-
-
 PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), os.pardir))
 
 DEBUG = True
@@ -57,7 +55,6 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/')
-
 TWITTER_BOOTSTRAP_ROOT = os.path.join(PROJECT_ROOT, '../bootstrap/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
