@@ -12,14 +12,20 @@ from setuptools import setup, find_packages
 tests_require = [
 ]
 
+dependency_links = [
+    'http://github.com/kinkerl/eukalypse/tarball/master#egg=eukalypse'
+]
+
 
 install_requires = [
     'south',
     'sphinx',
     'pil',
-#    '-e git://github.com/kinkerl/eukalypse.git@master#egg=eukalypse',
     'raven',
-    'logan'
+    'logan',
+    'gunicorn',
+    'eukalypse'
+
 ]
 
 setup(
@@ -34,6 +40,7 @@ setup(
     zip_safe=False,
     install_requires=install_requires,
     tests_require=tests_require,
+    dependency_links = dependency_links,
     license='BSD',
     include_package_data=True,
     entry_points={
