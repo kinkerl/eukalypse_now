@@ -11,6 +11,16 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   quickstart/index
+
+
+Reference
+---------
+
+.. toctree::
+   :maxdepth: 1
+
+   license/index
 
 
 Indices and tables
