@@ -22,7 +22,7 @@ class Command(BaseCommand):
         for test in project.tests.all():
 
             e = Eukalypse()
-            e.browser = 'chrome'
+            e.browser = settings.EUKALYPSE_BROWSER
             e.output = os.path.join(settings.MEDIA_ROOT , 'images')
             eukalypse_result_object = e.compare(test.identifier + "-" + str(datetime.now()).replace(' ', '-'), test.image, test.url)
             e.disconnect()
