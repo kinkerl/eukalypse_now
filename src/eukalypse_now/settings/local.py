@@ -1,4 +1,4 @@
-from eukalypse_now.settings.settings import *
+from settings.defaults import *
 
 
 

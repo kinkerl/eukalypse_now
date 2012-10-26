@@ -11,10 +11,7 @@ urlpatterns = patterns('',
     url(r'^testrun/list/', 'eukalypse_now.views.testrun_list'),
     url(r'^testrun/detail/(?P<testrun_id>\d+)/', 'eukalypse_now.views.testrun_detail'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
+    url(r'^static2/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.TWITTER_BOOTSTRAP_ROOT}),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'eukalypse_now.views.testrun_list'),
 )

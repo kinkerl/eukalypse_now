@@ -1,3 +1,7 @@
+{% extends "eukalypse_now/root.html" %}
+
+{% block base_content %}
+
 <h1>Eukalypse NOW!</h1>
 {% if testruns %}
 	<ul>
@@ -10,3 +14,4 @@
 	afterwards run the tests! <br>
 	<code>python manage.py testrun "Project Name"</code>
 {% endif %}
+{% endblock %}
