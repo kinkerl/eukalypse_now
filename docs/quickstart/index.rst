@@ -54,8 +54,8 @@ Running Migrations
 
 Create a database in ~/.eukalypse_now/::
 
-  python manage.py syncdb
-  python manage.py migrate
+  eukalypse_now syncdb
+  eukalypse_now migrate
 
 
 
