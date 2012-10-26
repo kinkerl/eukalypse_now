@@ -35,17 +35,25 @@ Finally, activate your virtualenv::
 
 
 Install eukalypse_now
---------------
+----------------------
 
 Once you've got the environment setup, you can install eukalypse_now and all its dependencies::
 
   python setup.py install
 
 
+Settings
+--------
+
+Create a custom settings file in ~/.eukalypse_now/ ::
+
+  eukalypse_now init
+
 Running Migrations
 ------------------
 
-  eukalypse_now init
+Create a database in ~/.eukalypse_now/::
+
   python manage.py syncdb
   python manage.py migrate
 
@@ -56,5 +64,6 @@ Running Migrations
 Starting the Web Service
 ------------------------
 
+run the server!::
 
   eukalypse_now  run_gunicorn 0.0.0.0:8000 -w 3

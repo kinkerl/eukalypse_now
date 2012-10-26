@@ -22,3 +22,4 @@ pip-log.txt
 media/images
 src/eukalypse_now/media/images
 src/eukalypse_now/eukalypse_now/settings/local.py
+docs/_build/

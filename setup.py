@@ -2,6 +2,8 @@
 """
 eukalypse_now
 
+web server for eukalypse. 
+
 :copyright: (c) 2012 Dennis Schwertel, see AUTHORS for more details.
 :license: BSD, see LICENSE for more details.
 """
@@ -18,13 +20,14 @@ dependency_links = [
 
 
 install_requires = [
-    'south',
-    'sphinx',
-    'pil',
-    'raven',
-    'logan',
-    'gunicorn',
-    'eukalypse'
+    'South==0.7.6',
+    'Sphinx==1.1.3',
+    'Pillow==1.7.7',
+    'raven==2.0.7.1',
+    'logan==0.5.1',
+    'gunicorn==0.15.0',
+    'eukalypse',
+    'Django==1.4.1'
 
 ]
 

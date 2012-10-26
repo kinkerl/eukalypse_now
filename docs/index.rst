@@ -6,8 +6,6 @@
 Welcome to eukalypse_now's documentation!
 =========================================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
 

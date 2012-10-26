@@ -12,9 +12,9 @@ eukalypse_now was originally written and is maintained by Dennis Schwertel.
 
 A lit of additional contributors can be seen on `GitHub <https://github.com/kinkerl/eukalypse_now/contributors>`_.
 
-.. _eukalypse_now:
+.. _eukalypse_now-license:
 
 eukalypse_now License
---------------
+---------------------
 
 .. include:: ../../LICENSE
