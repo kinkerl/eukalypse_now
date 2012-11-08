@@ -27,6 +27,7 @@ install_requires = [
     'logan==0.5.1',
     'gunicorn==0.15.0',
     'eukalypse',
+    'easy-thumbnails==1.1',
     'Django==1.4.1'
 
 ]

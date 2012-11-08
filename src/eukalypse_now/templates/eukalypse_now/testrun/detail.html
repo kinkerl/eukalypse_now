@@ -1,4 +1,6 @@
 {% extends "eukalypse_now/root.html" %}
+
+{% load thumbnail %}
 {% block base_content %}
 <h1>{{testrun}}</h1>
 
@@ -9,10 +11,10 @@
 	
 	{% if testresult.error %}
 		<span style="color: red">{{testresult.test.identifier}}</span><br/>	
-		<img width="100" src="{{testresult.referenceimage.url}}">
-		<img width="100" src="{{testresult.resultimage.url}}">
-		<img width="100" src="{{testresult.errorimage.url}}">
-		<img width="100" src="{{testresult.errorimage_improved.url}}">
+		<a href="{{testresult.referenceimage.url}}"><img width="100" src="{{testresult.referenceimage|thumbnail_url:'detail'}}"></a>
+		<a href="{{testresult.resultimage.url}}"><img width="100" src="{{testresult.resultimage|thumbnail_url:'detail'}}"></a>
+		<a href="{{testresult.errorimage.url}}"><img width="100" src="{{testresult.errorimage|thumbnail_url:'detail'}}"></a>
+		<a href="{{testresult.errorimage_improved.url}}"><img width="100" src="{{testresult.errorimage_improved|thumbnail_url:'detail'}}"></a>
 		
 	{% else %}
 		<span style="color: green">{{testresult.test.identifier}}</span>

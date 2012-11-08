@@ -140,9 +140,14 @@ INSTALLED_APPS = (
     'gunicorn',
     'south',
     'eukalypse_now',
-    
+    'easy_thumbnails',
 )
 
+THUMBNAIL_ALIASES = {
+    '': {
+        'detail': {'size': (100, 100)},
+    },
+}
 
 
 # A sample logging configuration. The only tangible logging

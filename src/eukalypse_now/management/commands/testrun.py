@@ -14,7 +14,6 @@ class Command(BaseCommand):
 
     def _getMediaUrl(self, path):
 
-
         return path[len(settings.MEDIA_ROOT):]
 
     def handle(self, arg_project = None, *args, **options):

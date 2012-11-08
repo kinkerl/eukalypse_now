@@ -9,9 +9,6 @@ CONF_ROOT = os.path.dirname(__file__)
 
 DATABASES = {
     'default': {
-        # You can swap out the engine for MySQL easily by changing this value
-        # to ``django.db.backends.mysql`` or to PostgreSQL with
-        # ``django.db.backends.postgresql_psycopg2``
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(CONF_ROOT, 'eukalypse_now.db'),
         'USER': 'postgres',
@@ -35,6 +32,9 @@ EMAIL_PORT = 25
 EMAIL_USE_TLS = False
 
 
+SITE_URL = 'http://localhost:8000'
+MEDIA_URL = SITE_URL + '/media/'
+MEDIA_ROOT=''
 
 SENTRY_DSN = ''
 
