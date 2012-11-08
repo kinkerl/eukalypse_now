@@ -53,7 +53,6 @@ class Command(BaseCommand):
                 msg['Subject'] = 'MB.com Pixel Reporting'
                 msg['From'] = settings.NOTIFY_MAIL_SENDER
                 msg['To'] = project.notify_recipient
-                print msg
                 s = smtplib.SMTP(settings.EMAIL_HOST)
                 s.sendmail(settings.NOTIFY_MAIL_SENDER, project.notify_recipient, msg.as_string())
                 s.quit()
