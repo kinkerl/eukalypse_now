@@ -6,6 +6,10 @@ class Project(models.Model):
     name = models.CharField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+    notify_mail = models.BooleanField(default=False, help_text="send notification mail after a testrun")
+    notify_only_error = models.BooleanField(default=False, help_text="only send the mail if an error occurs")
+    notify_recipient =  models.TextField(blank=True, null=True)
+    
     def __unicode__(self):
         return self.name
 
@@ -41,6 +45,7 @@ class Testrun(models.Model):
     project = models.ForeignKey('Project', null=True,  related_name='testrun')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+    error = models.BooleanField(default=True)
     def __unicode__(self):
         return "{0}-{1}".format(self.project.name, self.created)
 

@@ -9,6 +9,7 @@ class TestInline(admin.StackedInline):
 class ProjectAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,               {'fields': ['name']}),
+        ('Notification Mail',               {'fields': ['notify_mail', 'notify_only_error', 'notify_recipient']}),
     ]
     inlines = [TestInline]
 

@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^testrun/detail/(?P<testrun_id>\d+)/', 'eukalypse_now.views.testrun_detail'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/favicon.ico'}),
     url(r'^$', 'eukalypse_now.views.testrun_list'),
 )
 urlpatterns += staticfiles_urlpatterns()

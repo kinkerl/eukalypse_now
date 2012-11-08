@@ -26,6 +26,10 @@ DATABASES = {
     }
 }
 
+SITE_URL = 'http://localhost:8000'
+
+NOTIFY_MAIL_SENDER = ''
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -58,7 +62,7 @@ TWITTER_BOOTSTRAP_ROOT = os.path.join(PROJECT_ROOT, '../bootstrap/')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://localhost:8000/media/'
+MEDIA_URL = SITE_URL + '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -94,6 +98,11 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "eukalypse_now.context_processors.site",
 )
 
 MIDDLEWARE_CLASSES = (
