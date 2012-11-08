@@ -14,6 +14,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 EUKALYPSE_BROWSER='phantomjsbin'
+EUKALYPSE_HOST='http://localhost:4444'
 
 DATABASES = {
     'default': {
