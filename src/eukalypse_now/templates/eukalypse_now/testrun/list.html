@@ -1,17 +1,29 @@
 {% extends "eukalypse_now/root.html" %}
 
+{% block base_nav %}
+{% endblock %}
+
+
+
 {% block base_content %}
 
-<h1>Eukalypse NOW!</h1>
-{% if testruns %}
-	<ul>
-	{% for testrun in testruns %}
-		<li><a href="{{testrun.get_absolute_url}}">{{ testrun }}</a></li>
-	{% endfor %}
-	</ul>
-{% else %}
-	no testresults yes! go to the admin interface and create tests.
-	afterwards run the tests! <br>
-	<code>python manage.py testrun "Project Name"</code>
-{% endif %}
+<h1>Projects</h1>
+{% for project in projects %}
+    <div class="well">
+        <h2>{{project}}</h2>
+        <ul>
+        {% for testrun in project.list_testrun_for_overview %}
+            <li><a href="{{testrun.get_absolute_url}}">{{ testrun }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+
+{% empty %}
+    <div class="well">
+    no testresults yet! go to the admin interface and create tests.
+    afterwards run the tests! <br>
+    <code>python manage.py testrun "Project Name"</code>
+    </div>
+{% endfor %}
+
 {% endblock %}

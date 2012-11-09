@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from models import Testrun
+from models import Testrun, Project
 from django.shortcuts import get_object_or_404
 from django.utils import simplejson
 
 def testrun_list(request):
-    testruns = Testrun.objects.all()
-    return render(request, 'eukalypse_now/testrun/list.html', {"testruns": testruns})
+    projects = Project.objects.all()
+    return render(request, 'eukalypse_now/testrun/list.html', {"projects": projects})
 
 def testrun_detail(request, testrun_id):
     testrun = get_object_or_404(Testrun, pk=testrun_id)

@@ -1,23 +1,29 @@
 {% extends "eukalypse_now/root.html" %}
 
 {% load thumbnail %}
+
 {% block base_content %}
 <h1>{{testrun}}</h1>
-
+<p class="text-info">Hint: (1) Reference   (2) result   (3) error   (4) error improved</p>
 <ul>
 {% for testresult in testrun.testresult.all %}
 	<li>
 
 	
 	{% if testresult.error %}
-		<span style="color: red">{{testresult.test.identifier}}</span><br/>	
-		<a href="{{testresult.referenceimage.url}}"><img width="100" src="{{testresult.referenceimage|thumbnail_url:'detail'}}"></a>
-		<a href="{{testresult.resultimage.url}}"><img width="100" src="{{testresult.resultimage|thumbnail_url:'detail'}}"></a>
-		<a href="{{testresult.errorimage.url}}"><img width="100" src="{{testresult.errorimage|thumbnail_url:'detail'}}"></a>
-		<a href="{{testresult.errorimage_improved.url}}"><img width="100" src="{{testresult.errorimage_improved|thumbnail_url:'detail'}}"></a>
-		
+    	<span class="label label-important">{{testresult.test.identifier}}</span>
+		<ul class="thumbnails">
+          <li class="span2"><a class="thumbnail" href="{{testresult.referenceimage.url}}"><img  width="100" src="{{testresult.referenceimage|thumbnail_url:'detail'}}"></a>  </li>
+		  <li class="span2"><a class="thumbnail" href="{{testresult.resultimage.url}}"><img width="100" src="{{testresult.resultimage|thumbnail_url:'detail'}}"></a>  </li>
+		  <li class="span2"><a class="thumbnail" href="{{testresult.errorimage.url}}"><img width="100" src="{{testresult.errorimage|thumbnail_url:'detail'}}"></a>  </li>
+		  <li class="span2"><a class="thumbnail" href="{{testresult.errorimage_improved.url}}"><img width="100" src="{{testresult.errorimage_improved|thumbnail_url:'detail'}}"></a>  </li>
+		</ul>
 	{% else %}
-		<span style="color: green">{{testresult.test.identifier}}</span>
+    	<span class="label label-success">{{testresult.test.identifier}}</span>
+    	<ul class="thumbnails">
+          <li class="span2"><a class="thumbnail" href="{{testresult.referenceimage.url}}"><img  width="100" src="{{testresult.referenceimage|thumbnail_url:'detail'}}"></a>  </li>
+		  <li class="span2"><a class="thumbnail" href="{{testresult.resultimage.url}}"><img width="100" src="{{testresult.resultimage|thumbnail_url:'detail'}}"></a>  </li>
+		</ul>
 	{% endif %}
 
 	</li>

@@ -28,7 +28,13 @@ class Command(BaseCommand):
             eukalypse_result_object = e.compare(test.get_identifier(), test.image, test.url)
             e.disconnect()
             if eukalypse_result_object.clean:
-                testresult = Testresult.objects.create(test=test, testrun = testrun, resultimage=self._getMediaUrl(eukalypse_result_object.target_img))
+                testresult = Testresult.objects.create(\
+                    test=test, \
+                    testrun = testrun, \
+                    error = False, \
+                    resultimage=self._getMediaUrl(eukalypse_result_object.target_img),\
+                    referenceimage=test.image, \
+                    )
             else:
                 testresult = Testresult.objects.create(\
                     test=test, \

@@ -143,7 +143,7 @@ INSTALLED_APPS = (
 
 THUMBNAIL_ALIASES = {
     '': {
-        'detail': {'size': (100, 100)},
+        'detail': {'size': (100, 80), "crop": True},
     },
 }
 

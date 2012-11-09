@@ -17,6 +17,12 @@ class Project(models.Model):
     def __unicode__(self):
         return self.name
 
+
+    def list_testrun_for_overview(self):
+        return self.testrun.order_by('-created')[:5]
+    
+    
+    
 class Test(models.Model):
     project = models.ForeignKey('Project', related_name='tests')
     identifier = models.SlugField(max_length=200)
