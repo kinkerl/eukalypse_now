@@ -37,7 +37,8 @@ class Test(models.Model):
         """Erzeugt Screenshot von url mit Eukalypse und speichert selbiges image (überschreibt evtl vorhandenes image)."""
         identifier = self.get_identifier() # Vorher speichern!
         e = Eukalypse()
-        e.browser = 'phantomjsbin'
+        e.browser = settings.EUKALYPSE_BROWSER
+        e.host = settings.EUKALYPSE_HOST
         e.output = os.path.join(settings.MEDIA_ROOT , 'images')
         e.screenshot(identifier, self.url)
         self.image = "images/" + identifier + ".png"
