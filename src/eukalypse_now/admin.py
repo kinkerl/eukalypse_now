@@ -13,11 +13,11 @@ class TestInline(admin.StackedInline):
 
 class ProjectAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['name']}),
+        (None,               {'fields': ['name', 'active']}),
         ('Notification Mail',               {'fields': ['notify_mail', 'notify_only_error', 'notify_recipient']}),
     ]
     inlines = [TestInline]
-    
+    list_display = ('name', 'active', )
     def save_formset(self, request, form, formset, change):
         """ Speichert Screenshots der tests als Referenz, wenn noch kein Bild Hinterlegt.
         Damit das auch beim anlegen neuer Tests und speichern bestehnder funktioniert

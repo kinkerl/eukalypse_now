@@ -59,6 +59,13 @@ Create a database in ~/.eukalypse_now/::
 
 
 
+Starging Celery
+---------------
+
+This daemon is for running checks at night.::
+
+  eukalypse_now celeryd -E -B -I eukalypse_now.tasks
+
 
 
 Starting the Web Service
@@ -66,4 +73,4 @@ Starting the Web Service
 
 run the server!::
 
-  eukalypse_now  run_gunicorn 0.0.0.0:8000 -w 3
+  eukalypse_now run_gunicorn 0.0.0.0:8000 -w 3

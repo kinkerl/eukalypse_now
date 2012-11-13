@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.utils import simplejson
 
 def testrun_list(request):
-    projects = Project.objects.all()
+    projects = Project.objects.filter(active=True)
     return render(request, 'eukalypse_now/testrun/list.html', {"projects": projects})
 
 def testrun_detail(request, testrun_id):

@@ -28,7 +28,10 @@ install_requires = [
     'gunicorn==0.15.0',
     'eukalypse',
     'easy-thumbnails==1.1',
-    'Django==1.4.1'
+    'Django==1.4.1',
+#    'kombu==2.4.8',
+    'django-celery==3.0.11',
+    'celery==3.0.12',
 
 ]
 

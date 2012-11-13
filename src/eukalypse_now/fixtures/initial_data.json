@@ -1,0 +1,4 @@
+[
+{"pk": 2, "model": "djcelery.periodictask", "fields": {"task": "eukalypse_now.tasks.PeriodicalCheck", "name": "runs-every-night", "exchange": null, "last_run_at": "2012-11-09T23:16:32.639Z", "args": "[]", "enabled": true, "routing_key": null, "crontab": 2, "interval": null, "queue": null, "total_run_count": 80, "expires": null, "kwargs": "{}", "date_changed": "2012-11-09T23:16:53.726Z", "description": ""}},
+{"pk": 2, "model": "djcelery.crontabschedule", "fields": {"month_of_year": "*", "day_of_week": "*", "hour": "1", "minute": "0", "day_of_month": "*"}}
+]

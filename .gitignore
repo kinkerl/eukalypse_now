@@ -23,3 +23,6 @@ media/images
 src/eukalypse_now/media/images
 src/eukalypse_now/eukalypse_now/settings/local.py
 docs/_build/
+
+celerybeat-schedule
+src/eukalypse_now/djcelery.schedulers.DatabaseScheduler

@@ -11,6 +11,23 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+import djcelery
+djcelery.setup_loader()
+from datetime import timedelta
+
+
+BROKER_URL = 'django://'
+
+#CELERYBEAT_SCHEDULE = {
+#    "runs-every-night": {
+#        "task": "eukalypse_now.tasks.PeriodicalCheck",
+#        "schedule": crontab(hour=20, minute=30),
+#        'schedule': timedelta(seconds=30),
+#    },
+#}
+
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+
 EUKALYPSE_BROWSER='phantomjsbin'
 EUKALYPSE_HOST='http://localhost:4444'
 
@@ -133,17 +150,19 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
     'gunicorn',
     'south',
     'eukalypse_now',
     'easy_thumbnails',
+    'djcelery',
+    'kombu.transport.django',
 )
+
 
 THUMBNAIL_ALIASES = {
     '': {
-        'detail': {'size': (100, 80), "crop": True},
+        'detail': {'size': (100, 80)},
     },
 }
 

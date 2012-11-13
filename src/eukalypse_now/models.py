@@ -8,6 +8,7 @@ from eukalypse.eukalypse import Eukalypse
 
 class Project(models.Model):
     name = models.CharField(max_length=200)
+    active = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     notify_mail = models.BooleanField(default=False, help_text="send notification mail after a testrun")
