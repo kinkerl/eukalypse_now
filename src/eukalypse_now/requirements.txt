@@ -4,3 +4,6 @@ sphinx
 pillow
 -e git://github.com/kinkerl/eukalypse.git@master#egg=eukalypse
 raven
+easy-thumbnails
+gunicorn
+
