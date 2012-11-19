@@ -27,10 +27,12 @@ class ProjectAdmin(admin.ModelAdmin):
         formset.save()
         for f in formset.forms:
             if not f.instance.image:
+                #the default images has some advantages to a "None" Image. the most important one is: 
+                #if you save twice and the first save is not finished creating the image, the second save will not trigger another image creation because an image - the default one- is already set. 
                 f.instance._set_image_default()
                 from eukalypse_now.tasks import SetImageFromUrl 
                 SetImageFromUrl.delay(f.instance)
-#                f.instance._set_image_from_url()
+
 
 admin.site.register(Project, ProjectAdmin)
 

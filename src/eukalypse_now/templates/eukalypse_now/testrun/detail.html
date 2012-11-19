@@ -17,6 +17,10 @@
 		  <li class="span2"><a class="thumbnail" href="{{testresult.resultimage.url}}"><img width="100" src="{{testresult.resultimage|thumbnail_url:'detail'}}"></a>  </li>
 		  <li class="span2"><a class="thumbnail" href="{{testresult.errorimage.url}}"><img width="100" src="{{testresult.errorimage|thumbnail_url:'detail'}}"></a>  </li>
 		  <li class="span2"><a class="thumbnail" href="{{testresult.errorimage_improved.url}}"><img width="100" src="{{testresult.errorimage_improved|thumbnail_url:'detail'}}"></a>  </li>
+		  <li class="span2"><a href="{{testresult.get_become_reference_url}}" rel="tooltip" title="Use new created image as reference" data-placement="right"><i class="icon-refresh"></i></a></li>
+		  
+		  
+		  
 		</ul>
 	{% else %}
     	<a href="{{testresult.test.url}}"><span class="label label-success">{{testresult.test.identifier}}</span></a><br/>

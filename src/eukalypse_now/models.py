@@ -73,6 +73,10 @@ class Testresult(models.Model):
 
     def become_reference(self):
         self.test.image = self.resultimage
+        self.test.save()
+        
+    def get_become_reference_url(self):
+        return "/testresult/as_reference/{0}".format(self.id)
 
 class Testrun(models.Model):
     project = models.ForeignKey('Project', null=True,  related_name='testrun')
