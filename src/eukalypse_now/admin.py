@@ -27,8 +27,10 @@ class ProjectAdmin(admin.ModelAdmin):
         formset.save()
         for f in formset.forms:
             if not f.instance.image:
-                print "no image"
-                f.instance._set_image_from_url()
+                f.instance._set_image_default()
+                from eukalypse_now.tasks import SetImageFromUrl 
+                SetImageFromUrl.delay(f.instance)
+#                f.instance._set_image_from_url()
 
 admin.site.register(Project, ProjectAdmin)
 

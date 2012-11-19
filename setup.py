@@ -15,7 +15,8 @@ tests_require = [
 ]
 
 dependency_links = [
-    'http://github.com/kinkerl/eukalypse/tarball/master#egg=eukalypse'
+    'http://github.com/kinkerl/eukalypse/tarball/master#egg=eukalypse',
+    'https://github.com/dcramer/logan/tarball/master#egg=logan'
 ]
 
 

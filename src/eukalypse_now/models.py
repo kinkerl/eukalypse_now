@@ -13,7 +13,7 @@ class Project(models.Model):
     modified = models.DateTimeField(auto_now=True)
     notify_mail = models.BooleanField(default=False, help_text="send notification mail after a testrun")
     notify_only_error = models.BooleanField(default=False, help_text="only send the mail if an error occurs")
-    notify_recipient =  models.TextField(blank=True, null=True)
+    notify_recipient =  models.TextField(blank=True, null=True, help_text="Multiple recipient are semicolon separated: mail@domain.com;mail2@domain.com")
     
     def __unicode__(self):
         return self.name
@@ -39,6 +39,10 @@ class Test(models.Model):
         from django.template.defaultfilters import slugify
         """Liefert einen identifier String für dieses Screenshotbild."""
         return u"%s" % slugify(self.identifier + "-" + str(datetime.now()).replace(' ', '-'))
+
+    def _set_image_default(self):
+        self.image = "images/default.png"
+        self.save()
 
     def _set_image_from_url(self):
         """Erzeugt Screenshot von url mit Eukalypse und speichert selbiges image (überschreibt evtl vorhandenes image)."""
