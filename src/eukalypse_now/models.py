@@ -28,6 +28,7 @@ class Test(models.Model):
     project = models.ForeignKey('Project', related_name='tests')
     identifier = models.SlugField(max_length=200)
     url = models.URLField()
+    wait = models.IntegerField(default=0, help_text="Wait xx seconds after the website finished loading to create the screenshot.")
     image = models.ImageField(upload_to='images', null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
@@ -50,6 +51,7 @@ class Test(models.Model):
         e = Eukalypse()
         e.browser = settings.EUKALYPSE_BROWSER
         e.host = settings.EUKALYPSE_HOST
+        e.wait = self.wait
         e.output = os.path.join(settings.MEDIA_ROOT , 'images')
         e.screenshot(identifier, self.url)
         self.image = "images/" + identifier + ".png"

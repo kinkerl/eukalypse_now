@@ -48,6 +48,7 @@ class Testrunner(Task):
             e = Eukalypse()
             e.browser = settings.EUKALYPSE_BROWSER
             e.host = settings.EUKALYPSE_HOST
+            e.wait=test.wait
             e.output = os.path.join(settings.MEDIA_ROOT , 'images')
             eukalypse_result_object = e.compare(test.get_identifier(), test.image, test.url)
             e.disconnect()

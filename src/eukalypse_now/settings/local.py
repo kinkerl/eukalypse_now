@@ -1,7 +1,7 @@
 from settings.defaults import *
 
 
-EUKALYPSE_BROWSER='phantomjsbin'
+EUKALYPSE_BROWSER='chrome'
 EUKALYPSE_HOST='http://192.188.23.18:4444'
 
 EMAIL_HOST = 'mail.s-v.de'
