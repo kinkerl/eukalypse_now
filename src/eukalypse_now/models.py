@@ -13,7 +13,7 @@ class Project(models.Model):
     modified = models.DateTimeField(auto_now=True)
     notify_mail = models.BooleanField(default=False, help_text="send notification mail after a testrun")
     notify_only_error = models.BooleanField(default=False, help_text="only send the mail if an error occurs")
-    notify_recipient =  models.TextField(blank=True, null=True, help_text="Multiple recipient are semicolon separated: mail@domain.com;mail2@domain.com")
+    notify_recipient =  models.TextField(blank=True, null=True, help_text="Multiple recipient are ', ' (comma space) separated: mail@domain.com;mail2@domain.com")
     
     def __unicode__(self):
         return self.name
