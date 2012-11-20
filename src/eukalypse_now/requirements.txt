@@ -6,4 +6,8 @@ pillow
 raven
 easy-thumbnails
 gunicorn
+django-kombu
+celery
+django-celery
+
 
