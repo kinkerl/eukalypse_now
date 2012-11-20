@@ -66,7 +66,7 @@ This daemon is for running checks at night.::
 
   eukalypse_now celeryd -E -B -I eukalypse_now.tasks
 
-
+.. note:: This is broken right now due to a bug in logan or billiard
 
 Starting the Web Service
 ------------------------
