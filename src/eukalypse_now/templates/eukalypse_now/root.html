@@ -28,5 +28,27 @@
   	
       <script src="http://code.jquery.com/jquery-latest.js"></script>
       <script src="/static/js/bootstrap.min.js"></script>
+        <script>
+        jQuery(document).ready(function(){
+        jQuery('.ajaxcall').click(function(e){
+            e.preventDefault();
+            
+            var ident = jQuery(this).data('ident');
+            
+            jQuery.ajax({
+                url: jQuery(this).attr('href'),
+                dataType: 'json',
+                success: function(){
+                    var anchor = jQuery('.anchor[data-ident=' + ident + ']').attr('name');
+                    window.location.href = window.location.href.split('#')[0] + "#" + anchor;
+                    window.location.reload(true);
+                },
+                complete: function(){},
+                error: function() {}
+            });
+        });
+        });
+        </script>
+  
   </body>
 </html>

@@ -62,6 +62,8 @@ class Testresult(models.Model):
     testrun = models.ForeignKey('Testrun',  related_name='testresult')
     resultimage = models.ImageField(upload_to='images', null=True, blank=True)
     error = models.BooleanField(default=False)
+    error_acknowledged = models.BooleanField(default=False)
+    error_reference_updated = models.BooleanField(default=False)
     referenceimage = models.ImageField(upload_to='images', null=True, blank=True)
     errorimage = models.ImageField(upload_to='images', null=True, blank=True)
     errorimage_improved = models.ImageField(upload_to='images', null=True, blank=True)
@@ -74,9 +76,18 @@ class Testresult(models.Model):
     def become_reference(self):
         self.test.image = self.resultimage
         self.test.save()
+        self.error_reference_updated=True
+        self.save()
         
     def get_become_reference_url(self):
         return "/testresult/as_reference/{0}".format(self.id)
+        
+    def acknowledge_error(self):
+        self.error_acknowledged=True
+        self.save()
+    
+    def get_acknowledge_error_url(self):
+        return "/testresult/acknowledge_error/{0}".format(self.id)
 
 class Testrun(models.Model):
     project = models.ForeignKey('Project', null=True,  related_name='testrun')

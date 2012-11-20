@@ -17,3 +17,14 @@ def testresult_as_reference(request, testresult_id):
     testresult.become_reference()
     to_json = {"return": "clear"}
     return HttpResponse(simplejson.dumps(to_json), mimetype="application/json")
+    
+    
+
+def testresult_acknowledge_error(request, testresult_id):
+    testresult = get_object_or_404(Testresult, pk=testresult_id)
+    testresult.acknowledge_error()
+    to_json = {"return": "clear"}
+    return HttpResponse(simplejson.dumps(to_json), mimetype="application/json")
+    
+    
+    
