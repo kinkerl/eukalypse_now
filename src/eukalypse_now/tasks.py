@@ -81,11 +81,12 @@ class Testrunner(Task):
                 from django.template.loader import render_to_string
                 render = render_to_string('eukalypse_now/mail.html', {'testrun': testrun, 'SITE_URL': settings.SITE_URL})
                 msg = MIMEText(render, 'html')
-                msg['Subject'] = 'MB.com Pixel Reporting'
+                msg['Subject'] = 'Pixel Reporting'
                 msg['From'] = settings.NOTIFY_MAIL_SENDER
                 msg['To'] = project.notify_recipient
                 s = smtplib.SMTP(settings.EMAIL_HOST)
-                s.sendmail(settings.NOTIFY_MAIL_SENDER, project.notify_recipient, msg.as_string())
+                rcpts = [r.strip() for r in  project.notify_recipient,.split(',') if r]
+                s.sendmail(settings.NOTIFY_MAIL_SENDER, rcpts, msg.as_string())
                 s.quit()
 
 
