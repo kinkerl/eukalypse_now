@@ -85,7 +85,7 @@ class Testrunner(Task):
                 msg['From'] = settings.NOTIFY_MAIL_SENDER
                 msg['To'] = project.notify_recipient
                 s = smtplib.SMTP(settings.EMAIL_HOST)
-                rcpts = [r.strip() for r in  project.notify_recipient,.split(',') if r]
+                rcpts = [r.strip() for r in  project.notify_recipient.split(',') if r]
                 s.sendmail(settings.NOTIFY_MAIL_SENDER, rcpts, msg.as_string())
                 s.quit()
 
