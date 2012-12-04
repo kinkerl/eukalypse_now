@@ -1,6 +1,9 @@
 eukalypse_now
 =============
 
+.. image:: https://secure.travis-ci.org/kinkerl/eukalypse_now.png
+    :alt: Travis CI Build Status
+
 The eukalypse_now package, at its core, is just a simple server and web UI for eukalypse
 
 
