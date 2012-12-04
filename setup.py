@@ -2,7 +2,7 @@
 """
 eukalypse_now
 
-web server for eukalypse. 
+web server for eukalypse.
 
 :copyright: (c) 2012 Dennis Schwertel, see AUTHORS for more details.
 :license: BSD, see LICENSE for more details.
@@ -15,10 +15,7 @@ tests_require = [
 ]
 
 dependency_links = [
-#    'http://github.com/kinkerl/eukalypse/tarball/master#egg=eukalypse',
-#    'https://github.com/dcramer/logan/tarball/master#egg=logan'
 ]
-
 
 install_requires = [
     'South==0.7.6',
@@ -30,10 +27,8 @@ install_requires = [
     'eukalypse',
     'easy-thumbnails==1.1',
     'Django==1.4.1',
-#    'kombu==2.4.8',
     'django-celery==3.0.11',
     'celery==3.0.12',
-
 ]
 
 setup(
