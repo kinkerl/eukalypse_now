@@ -32,8 +32,6 @@ Finally, activate your virtualenv::
           install into the virtualenv by default.
 
 
-
-
 Install eukalypse_now
 ----------------------
 
