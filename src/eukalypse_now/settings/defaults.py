@@ -83,18 +83,18 @@ MEDIA_URL = SITE_URL + '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT =  os.path.join(PROJECT_ROOT, 'static/')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = SITE_URL + '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forgiet to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(PROJECT_ROOT, 'static_'),
 )
 
 # List of finder classes that know how to find static files in
@@ -149,6 +149,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'gunicorn',

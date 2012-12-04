@@ -24,7 +24,6 @@ class PeriodicalCheck(Task):
     def run(self, **kwargs):
         logger.debug("run PeriodicalCheck")
         for project in Project.objects.filter(active=True):
-            logger.error(project)
             call_command("testrun", project.name)
 
 
@@ -32,7 +31,6 @@ class SetImageFromUrl(Task):
 
     def run(self, instance, **kwargs):
         logger.debug("run SetImageFromUrl")
-
         instance._set_image_from_url()
 
 

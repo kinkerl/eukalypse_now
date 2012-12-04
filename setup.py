@@ -38,7 +38,7 @@ install_requires = [
 
 setup(
     name='eukalypse_now',
-    version='0.1',
+    version='0.1.1',
     author='Dennis Schwertel',
     author_email='s@digitalkultur.net',
     description='eukalypse web server',

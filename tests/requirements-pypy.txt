@@ -1,0 +1,5 @@
+pytest
+pytest-cov
+pep8
+configparser
+mock

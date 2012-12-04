@@ -26,3 +26,4 @@ docs/_build/
 
 celerybeat-schedule
 src/eukalypse_now/djcelery.schedulers.DatabaseScheduler
+.tox
