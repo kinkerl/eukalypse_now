@@ -10,4 +10,4 @@ The eukalypse_now package, at its core, is just a simple server and web UI for e
 Resources
 ---------
 
-* `Documentation <http://eukalypse-now.readthedocs.org/>`_
+* `Documentation <http://eukalypse_now.readthedocs.org/>`_
