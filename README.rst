@@ -10,5 +10,5 @@ The eukalypse_now package, at its core, is just a simple server and web UI for e
 Resources
 ---------
 
-* `Documentation <http://eukalypse_now.readthedocs.org/>`_
+* `Documentation <http://eukalypse_now.readthedocs.org/en/latest/>`_
 * `Continuous Integration <https://travis-ci.org/kinkerl/eukalypse_now/>`_

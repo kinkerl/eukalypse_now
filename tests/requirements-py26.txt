@@ -3,3 +3,4 @@ pytest-cov
 pep8
 configparser
 mock
+eukalypse_brew
