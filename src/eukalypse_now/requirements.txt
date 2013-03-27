@@ -9,5 +9,5 @@ gunicorn
 django-kombu
 celery
 django-celery
-
+djangocms_admin_style
 
