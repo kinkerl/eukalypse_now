@@ -13,7 +13,7 @@
         <h2>{{project}}</h2>
         <ul>
         {% for testrun in project.list_testrun_for_overview %}
-            <li><a href="{{testrun.get_absolute_url}}">{{ testrun }}</a></li>
+            <li><a href="{{testrun.get_absolute_url}}">{{ testrun }}</a> <span rel="tooltip" title="No error" class="label label-success">{{testrun.total_noerror}}</span> <span rel="tooltip" title="Handelt error" class="label label-warning">{{testrun.total_error_handelt}}</span> <span rel="tooltip" title="Unhandelt error" class="label label-important">{{testrun.total_error_nohandelt}}</span> </li>
         {% endfor %}
         </ul>
     </div>

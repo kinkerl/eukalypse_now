@@ -99,3 +99,42 @@ class Testrun(models.Model):
 
     def get_absolute_url(self):
         return "/testrun/detail/%i/" % self.id
+    
+    
+    def total_noerror(self):
+        return self.total_tests() - self.total_error()
+
+    def total_error(self):
+        ret = 0
+        for testresult in self.testresult.all():
+            if testresult.error != 0:
+                ret += 1
+        return ret
+    
+    def total_error_acknowledged(self):
+        ret = 0
+        for testresult in self.testresult.all():
+            if testresult.error_acknowledged != 0:
+                ret += 1
+        return ret
+    
+    def total_reference_updated(self):
+        ret = 0
+        for testresult in self.testresult.all():
+            if testresult.error_reference_updated != 0:
+                ret += 1
+        return ret
+    
+    def total_tests(self):
+        return len(self.testresult.all())
+  
+  
+    def total_error_handelt(self):
+            ret = 0
+            for testresult in self.testresult.all():
+                if testresult.error != 0 and ( testresult.error_acknowledged != 0  or testresult.error_reference_updated != 0) :
+                    ret += 1
+            return ret
+        
+    def total_error_nohandelt(self):
+        return self.total_error() - self.total_error_handelt()
