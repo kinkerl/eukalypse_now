@@ -50,7 +50,7 @@
             });
 
             google.load("visualization", "1", {packages:["corechart"]});
-            google.setOnLoadCallback(drawChart);
         </script>
+        {% block "foot_js" %}{% endblock "foot_js" %}
     </body>
 </html>

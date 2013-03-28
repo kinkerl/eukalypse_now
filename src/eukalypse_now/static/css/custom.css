@@ -23,7 +23,7 @@ html, body { height: 100%; }
 div.well {
     width: 45%;
     float: left;
-    margin: 3px;
+    margin: 30px 25px 0 0;
 }
 
 .navbar-inner { border-radius: 0; }
