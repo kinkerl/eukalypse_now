@@ -14,16 +14,17 @@ class Project(models.Model):
     notify_mail = models.BooleanField(default=False, help_text="send notification mail after a testrun")
     notify_only_error = models.BooleanField(default=False, help_text="only send the mail if an error occurs")
     notify_recipient =  models.TextField(blank=True, null=True, help_text="Multiple recipient are ', ' (comma space) separated: mail@domain.com, mail2@domain.com")
-    
+
     def __unicode__(self):
         return self.name
 
+    def get_maxerror_testrun(self):
+
+        return 0
 
     def list_testrun_for_overview(self):
         return self.testrun.order_by('-created')[:5]
-    
-    
-    
+
 class Test(models.Model):
     project = models.ForeignKey('Project', related_name='tests')
     identifier = models.SlugField(max_length=200)
@@ -99,8 +100,7 @@ class Testrun(models.Model):
 
     def get_absolute_url(self):
         return "/testrun/detail/%i/" % self.id
-    
-    
+
     def total_noerror(self):
         return self.total_tests() - self.total_error()
 
@@ -110,25 +110,24 @@ class Testrun(models.Model):
             if testresult.error != 0:
                 ret += 1
         return ret
-    
+
     def total_error_acknowledged(self):
         ret = 0
         for testresult in self.testresult.all():
             if testresult.error_acknowledged != 0:
                 ret += 1
         return ret
-    
+
     def total_reference_updated(self):
         ret = 0
         for testresult in self.testresult.all():
             if testresult.error_reference_updated != 0:
                 ret += 1
         return ret
-    
+
     def total_tests(self):
         return len(self.testresult.all())
-  
-  
+
     def total_error_handelt(self):
             ret = 0
             for testresult in self.testresult.all():
