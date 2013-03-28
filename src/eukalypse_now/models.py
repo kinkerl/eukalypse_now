@@ -25,6 +25,9 @@ class Project(models.Model):
     def list_testrun_for_overview(self):
         return self.testrun.order_by('-created')[:5]
 
+    def list_testrun_for_graph(self):
+        return self.testrun.order_by('-created')[:15]
+
 class Test(models.Model):
     project = models.ForeignKey('Project', related_name='tests')
     identifier = models.SlugField(max_length=200)
