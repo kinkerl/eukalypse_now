@@ -67,9 +67,8 @@
                 easing: 'inAndOut'
             },
             backgroundColor: '#f5f5f5',
-            colors: ['green', 'orange', 'red'],
+            colors: ['red', 'orange', 'green'],
             focusTarget: 'category',
-            pointSize: 5,
             chartArea: {
                 top: 20,
                 left: 20,
@@ -79,6 +78,7 @@
             fontSize: 14,
             fontName: 'Helvetica',
             axisTitlesPosition: 'none',
+            isStacked: true,
             legend: {
                 position: 'none'
             },
@@ -100,13 +100,17 @@
 
         {% for project in projects %}
         var data{{ project.id }} = google.visualization.arrayToDataTable([
-                ['', 'OK',    'Bekannt',   'Fehler'],
+                ['', 'Fehler', 'Bekannt', 'OK'],
                 {% for testrun in project.list_testrun_for_overview reversed %}
-                ['{{ testrun.created|date:"d. F Y" }} um {{ testrun.created|date:"H:i" }} Uhr', {{ testrun.total_noerror }}, {{ testrun.total_error_handelt }}, {{ testrun.total_error_nohandelt }}],
+                ['{{ testrun.created|date:"d. F Y" }} um {{ testrun.created|date:"H:i" }} Uhr',
+                    {{ testrun.total_error_nohandelt }},
+                    {{ testrun.total_error_handelt }},
+                    {{ testrun.total_noerror }}
+                ],
                 {% endfor %}
             ]);
 
-        var chart{{ project.id }} = new google.visualization.AreaChart(document.getElementById('graph-{{ project.id }}'));
+        var chart{{ project.id }} = new google.visualization.SteppedAreaChart(document.getElementById('graph-{{ project.id }}'));
         chart{{ project.id }}.draw(data{{ project.id }}, options);
         {% endfor %}
     }
