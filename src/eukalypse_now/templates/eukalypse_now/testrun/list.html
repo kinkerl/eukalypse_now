@@ -5,9 +5,10 @@
 
 {% block base_content %}
 <h1>Projects</h1>
+<div class="clearfix">
     {% for project in projects %}
-    <div class="well well-small">
-        <h2>{{project}}</h2>
+    <div class="well well-small half pull-left">
+        <legend>{{ project }}</legend>
         <div class="graph" id="graph-{{ project.id }}">
             graph-{{ project.id }}
         </div>
@@ -53,17 +54,18 @@
         </table>
     </div>
     {% empty %}
-    <div class="well">
+    <div class="well well-small half pull-left">
     no testresults yet! go to the admin interface and create tests.
     afterwards run the tests! <br>
     </div>
     {% endfor %}
+</div>
 {% endblock %}
 
 {% block "foot_js" %}
 <script type="text/javascript">
     jQuery(document).ready(function($) {
-        $('.tooltip').tooltip({
+        $('.label').tooltip({
             animation: false,
             placement: 'top',
             delay: { show: 200 }

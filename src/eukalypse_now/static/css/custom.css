@@ -20,11 +20,14 @@ html, body { height: 100%; }
   width: 100%;
 }
 
-div.well {
+.half {
     width: 45%;
-    float: left;
-    margin: 30px 25px 0 0;
+    margin: 0 25px 30px 0;
 }
+
+h1 { margin-bottom: 30px; }
+
+dl { margin-bottom: 0; }
 
 .navbar-inner { border-radius: 0; }
 
