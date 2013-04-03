@@ -19,7 +19,6 @@ class Project(models.Model):
         return self.name
 
     def get_maxerror_testrun(self):
-
         return 0
 
     def list_testrun_for_overview(self):
@@ -27,6 +26,9 @@ class Project(models.Model):
 
     def list_testrun_for_graph(self):
         return self.testrun.order_by('-created')[:15]
+
+    def latest_testrun(self):
+        return self.testrun.order_by('-created')[:1]
 
 class Test(models.Model):
     project = models.ForeignKey('Project', related_name='tests')
