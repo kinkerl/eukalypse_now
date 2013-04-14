@@ -48,7 +48,7 @@ install_requires = [
 #    'kombu==2.4.8',
     'django-celery==3.0.11',
     'celery==3.0.12',
-
+#    'fabric',
 ]
 
 setup(

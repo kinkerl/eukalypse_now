@@ -34,7 +34,7 @@ EUKALYPSE_HOST='http://localhost:4444'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'eukalypse.sqlite3',                      # Or path to database file if using sqlite3.
+        'NAME': '~/.eukalypse_now/eukalypse_now.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -149,7 +149,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'gunicorn',
