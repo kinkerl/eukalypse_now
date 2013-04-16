@@ -20,8 +20,37 @@ html, body { height: 100%; }
   width: 100%;
 }
 
-div.well {
+.half {
     width: 45%;
-    float: left;
-    margin: 3px;
+    margin: 0 25px 30px 0;
+}
+
+h1 { margin-bottom: 30px; }
+
+dl { margin-bottom: 0; }
+
+.navbar-inner { border-radius: 0; }
+
+.table { margin-bottom: 0; }
+
+.table-test tbody tr {
+    cursor: pointer;
+}
+
+.graph {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.table-test tbody tr:hover td {
+    background-color: #d9edf7;
+}
+
+.table-test td.status span {
+    width: 68%;
+}
+
+.table-test .status {
+    text-align: center;
 }
