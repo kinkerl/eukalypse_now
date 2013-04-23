@@ -7,7 +7,7 @@
 <h1>Projects</h1>
 <div class="clearfix">
     {% for project in projects %}
-    <div class="well well-small half pull-left">
+    <div id="well-{{ project.id }}" class="well well-small half pull-left">
         <legend>{{ project }}</legend>
         <div class="graph" id="graph-{{ project.id }}">
             graph-{{ project.id }}
