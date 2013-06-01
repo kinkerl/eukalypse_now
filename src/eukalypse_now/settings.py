@@ -1,6 +1,6 @@
 # Django settings for eukalypse_now project.
 import os
-PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), os.pardir))
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -34,7 +34,7 @@ EUKALYPSE_HOST='http://localhost:4444'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '~/.eukalypse_now/eukalypse_now.db',                      # Or path to database file if using sqlite3.
+        'NAME': '/home/desch/.eukalypse_now/eukalypse_now.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
