@@ -62,7 +62,7 @@ def main():
     run_app(
         project='eukalypse_now',
         default_config_path='~/.eukalypse_now/eukalypse_now.conf.py',
-        default_settings='eukalypse_now.settings.defaults',
+        default_settings='eukalypse_now.settings',
         settings_initializer=generate_settings,
         settings_envvar='EUKALYPSE_NOW_CONF',
     )
