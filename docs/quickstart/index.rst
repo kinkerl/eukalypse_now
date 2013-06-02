@@ -42,22 +42,12 @@ As default, eukalypse uses phantomjs and eukalypse_now tries to use the default 
 
 .. note:: During tests, selenium + chrome on Linux had the best performance and "correctness" of the images. phantomjs and selenium + firefox on Linux sometimes created false positives due to nondeterministic rendering.
 
-Get the code
+Get eukalypse_now
 ----------------------
 
-It is available through pip but due to a bug in celery/billiard/logan, it is not the recommended way to install euakalypse_now.
-First you have to get the code from github.::
+It is available through pip. ::
 
-  git clone git://github.com/kinkerl/eukalypse_now.git && cd eukalypse_now
-
-          
-          
-Install eukalypse_now
-----------------------
-
-Check if you are still inside your new virtual environment. If you are, you can install eukalypse_now and all its dependencies::
-
-  python setup.py install
+  pip install eukalypse_now
 
 
 Settings
@@ -67,7 +57,7 @@ Create a custom settings file in ~/.eukalypse_now/ ::
 
   eukalypse_now init
 
-Check the configuration in ~/.eukalypse_now//eukalypse_now.conf.py and update it to your needs.
+Check the configuration in ~/.eukalypse_now//eukalypse_now.conf.py and update it to your needs. You can overwrite every configuration you find in the settings.py
 
 Database setup / Migrations
 ----------------------------
