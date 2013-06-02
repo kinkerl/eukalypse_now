@@ -36,19 +36,17 @@ dependency_links = [
 
 
 install_requires = [
-    'South==0.7.6',
-    'Sphinx==1.1.3',
-    'Pillow==1.7.7',
-    'raven==2.0.7.1',
-    'logan==0.5.1',
-    'gunicorn==0.15.0',
+    'South==0.8.1',
+    'Sphinx==1.2b1',
+    'Pillow==2.0.0',
+    'raven==3.3.7',
+    'logan==0.5.6',
+    'gunicorn==0.17.4',
     'eukalypse',
-    'easy-thumbnails==1.1',
-    'Django==1.4.1',
-#    'kombu==2.4.8',
-    'django-celery==3.0.11',
-    'celery==3.0.12',
-#    'fabric',
+    'easy-thumbnails==1.2',
+    'Django==1.4',
+    'django-celery==3.0.17',
+    'celery==3.0.19',
 ]
 
 setup(
