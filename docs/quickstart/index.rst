@@ -88,14 +88,9 @@ You have to start both and both inside your virtual environment.
 Starging Celery
 ________________
 
-This daemon is for running checks at night.
+This daemon runs checks at night.::
 
-.. warning:: This optimal way is broken right now due to a bug in logan or billiard: https://github.com/dcramer/logan/issues/7 it should be 'eukalypse_now celeryd -E -B -I eukalypse_now.tasks' ... now to the workaround:
-
-You have to change in source directory, get the config and run celery from there::
-
-  cd src/eukalypse_now
-  python manage.py celeryd -E -B -I eukalypse_now.tasks --settings=settings
+   eukalypse_now celeryd -E -B -I eukalypse_now.tasks
 
 
 
