@@ -18,23 +18,6 @@ DATABASES = {
     }
 }
 
-# Mail server configuration
-
-# For more information check Django's documentation:
-#  https://docs.djangoproject.com/en/1.3/topics/email/?from=olddocs#e-mail-backends
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-EMAIL_HOST = 'localhost'
-EMAIL_HOST_PASSWORD = ''
-EMAIL_HOST_USER = ''
-EMAIL_PORT = 25
-EMAIL_USE_TLS = False
-
-
-SITE_URL = 'http://localhost:8000'
-MEDIA_URL = SITE_URL + '/media/'
-MEDIA_ROOT=''
 
 SENTRY_DSN = ''
 
@@ -55,6 +38,14 @@ def generate_settings():
     run and returns a string representing the default data to put into their
     settings file.
     """
+    import os
+    HOME = os.path.expanduser("~")
+    pathname = os.path.join(HOME, '.eukalypse_now/media/images')
+    try:
+        os.makedirs(pathname, 0755 )
+    except OSError:
+        print "Skipping creation of %s because it exists already or something went wrong."%pathname
+    
     return CONFIG_TEMPLATE
 
 
