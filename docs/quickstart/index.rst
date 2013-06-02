@@ -31,6 +31,17 @@ Finally, activate your virtualenv::
 .. note:: Activating the environment adjusts your PATH, so that things like easy_install now
           install into the virtualenv by default.
 
+
+Install phantomjs or selenium
+----------------------
+
+eukalypse uses phantomjs or selenium to create the images of websites. Please take a look at the documentation how to configure those to your needs. 
+As default, eukalypse uses phantomjs and eukalypse_now tries to use the default configuration. You have to install phantomjs beforehand.::
+
+   sudo gem install phantomjs 
+
+.. note:: During tests, selenium + chrome on Linux had the best performance and "correctness" of the images. phantomjs and selenium + firefox on Linux sometimes created false positives due to nondeterministic rendering.
+
 Get the code
 ----------------------
 
